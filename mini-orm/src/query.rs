@@ -1,4 +1,4 @@
-use sea_query::{Alias, Expr, JoinType, Query, SelectStatement};
+use sea_query::{Expr, JoinType, Query, SelectStatement};
 
 use crate::{
     entity::{Identifiable, TableEntity},
