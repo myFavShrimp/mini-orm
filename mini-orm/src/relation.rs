@@ -1,6 +1,6 @@
 use sea_query::Iden;
 
-use super::{Identifiable, TableEntity};
+use crate::entity::{Identifiable, TableEntity};
 
 /// Helper trait to define one to one and one to many relations on database entities.
 /// B is the related entity.
@@ -28,12 +28,15 @@ where
 
 #[cfg(test)]
 mod test {
-    use crate::{relation::OneToXRelation, Identifiable, TableEntity};
+    use crate::{entity::TableEntity, relation::OneToXRelation};
 
     use super::ManyToManyRelation;
 
     mod a {
-        use crate::macros::iden;
+        use crate::{
+            entity::{Identifiable, TableEntity},
+            macros::iden,
+        };
 
         iden! {
             Table => "table",
@@ -45,7 +48,7 @@ mod test {
             id: u32,
         }
 
-        impl super::TableEntity for Entity {
+        impl TableEntity for Entity {
             type Iden = Iden;
 
             fn all_columns() -> Vec<Self::Iden> {
@@ -57,7 +60,7 @@ mod test {
             }
         }
 
-        impl super::Identifiable for Entity {
+        impl Identifiable for Entity {
             type IdType = u32;
 
             fn id(&self) -> u32 {
@@ -71,7 +74,10 @@ mod test {
     }
 
     mod b {
-        use crate::macros::iden;
+        use crate::{
+            entity::{Identifiable, TableEntity},
+            macros::iden,
+        };
 
         iden! {
             Table => "table",
@@ -83,7 +89,7 @@ mod test {
             id: u32,
         }
 
-        impl super::TableEntity for Entity {
+        impl TableEntity for Entity {
             type Iden = Iden;
 
             fn all_columns() -> Vec<Self::Iden> {
@@ -95,7 +101,7 @@ mod test {
             }
         }
 
-        impl super::Identifiable for Entity {
+        impl Identifiable for Entity {
             type IdType = u32;
 
             fn id(&self) -> u32 {
@@ -109,7 +115,7 @@ mod test {
     }
 
     mod r {
-        use crate::macros::iden;
+        use crate::{entity::TableEntity, macros::iden};
 
         iden! {
             Table => "table",
@@ -122,7 +128,7 @@ mod test {
             pub b_id: u32,
         }
 
-        impl super::TableEntity for Entity {
+        impl TableEntity for Entity {
             type Iden = Iden;
 
             fn all_columns() -> Vec<Self::Iden> {
