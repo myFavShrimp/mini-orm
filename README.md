@@ -5,7 +5,6 @@ mini-orm is a blazingly fast Rust crate that utilizes traits to model relations 
 ## Features
 
 - 🏗️ Trait-based modelling: Define your relations using Rust traits, allowing for easy customization and extensibility.
-- 📜 Automatic query generation: mini-orm generates SQL queries automatically based on your trait definitions, so you don't have to write boilerplate SQL code.
 - 🌊 Built on top of sea-query: mini-orm utilizes the powerful SQL query builder, sea-query, to generate SQL queries automatically.
 - 💡 Easy to learn: With its intuitive syntax and powerful features, mini-orm is easy to learn and use, even for developers who are new to Rust.
 
