@@ -11,7 +11,10 @@ where
     fn id_column() -> Self::Iden;
 }
 
-pub trait TableEntity {
+pub trait TableEntity
+where
+    Self::Iden: sea_query::Iden,
+{
     type Iden;
 
     fn all_columns() -> Vec<Self::Iden>;
