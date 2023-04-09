@@ -7,7 +7,7 @@ iden! {
 }
 
 #[derive(Debug, Clone)]
-#[allow(dead_code)]
+#[cfg_attr(feature = "sqlx", derive(sqlx::FromRow))]
 pub struct IdEntity<I>
 where
     I: Copy + Send + Sync,
