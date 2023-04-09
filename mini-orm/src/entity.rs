@@ -13,7 +13,7 @@ where
 
 pub trait TableEntity
 where
-    Self::Iden: sea_query::Iden,
+    Self::Iden: sea_query::Iden + 'static,
 {
     type Iden;
 
