@@ -1,3 +1,4 @@
+mod id_entity;
 
 pub trait Identifiable<I>: TableEntity {
     fn id(&self) -> I;
