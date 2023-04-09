@@ -1,5 +1,5 @@
-mod id_entity;
-mod relation;
+pub mod id_entity;
+pub mod relation;
 
 pub use mini_orm_macro as macros;
 
