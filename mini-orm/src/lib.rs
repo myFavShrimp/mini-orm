@@ -1,4 +1,7 @@
 mod id_entity;
+mod relation;
+
+pub use mini_orm_macro as macros;
 
 pub trait Identifiable: TableEntity
 where
