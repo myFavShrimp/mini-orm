@@ -1,4 +1,5 @@
 [workspace]
 members = [
-  "mini-orm"
+  "mini-orm",
+  "mini-orm-macro"
 ]
