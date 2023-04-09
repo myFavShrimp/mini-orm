@@ -6,7 +6,7 @@ mini-orm is a blazingly fast Rust crate that utilizes traits to model relations 
 
 - 🏗️ Trait-based modelling: Define your relations using Rust traits, allowing for easy customization and extensibility.
 - 📜 Automatic query generation: mini-orm generates SQL queries automatically based on your trait definitions, so you don't have to write boilerplate SQL code.
-- 💡 Easy to learn: With its intuitive syntax and powerful features, ,ini-orm is easy to learn and use, even for developers who are new to Rust.
+- 💡 Easy to learn: With its intuitive syntax and powerful features, mini-orm is easy to learn and use, even for developers who are new to Rust.
 
 ## Getting Started
 
