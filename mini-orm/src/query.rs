@@ -40,6 +40,19 @@ where
         .to_owned()
 }
 
+pub fn query_related_by_ids<A, B>(ids: Vec<<A as Identifiable>::IdType>) -> SelectStatement
+where
+    A: Identifiable + OneToXRelation<B>,
+    B: Identifiable,
+    sea_query::Value: From<<A as Identifiable>::IdType>,
+{
+    Query::select()
+        .columns(<B as TableEntity>::all_columns())
+        .from(<B as TableEntity>::table())
+        .and_where(Expr::col(<A as OneToXRelation<B>>::target_relation_id_column()).is_in(ids))
+        .to_owned()
+}
+
 pub fn query_related_associative_by_id<A, B, R>(id: <A as Identifiable>::IdType) -> SelectStatement
 where
     A: Identifiable + ManyToManyRelation<B, R>,
@@ -63,5 +76,33 @@ where
             )),
         )
         .and_where(Expr::col(<A as ManyToManyRelation<B, R>>::own_relation_id_column()).eq(id))
+        .to_owned()
+}
+
+pub fn query_related_associative_by_ids<A, B, R>(
+    ids: Vec<<A as Identifiable>::IdType>,
+) -> SelectStatement
+where
+    A: Identifiable + ManyToManyRelation<B, R>,
+    B: Identifiable + ManyToManyRelation<A, R>,
+    R: TableEntity,
+    sea_query::Value: From<<A as Identifiable>::IdType>,
+{
+    Query::select()
+        .columns(<B as TableEntity>::all_columns())
+        .from(<B as TableEntity>::table())
+        .join(
+            JoinType::Join,
+            <R as TableEntity>::table(),
+            Expr::col((
+                <R as TableEntity>::table(),
+                <B as ManyToManyRelation<A, R>>::own_relation_id_column(),
+            ))
+            .equals((
+                <B as TableEntity>::table(),
+                <B as Identifiable>::id_column(),
+            )),
+        )
+        .and_where(Expr::col(<A as ManyToManyRelation<B, R>>::own_relation_id_column()).is_in(ids))
         .to_owned()
 }
