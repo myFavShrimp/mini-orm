@@ -19,7 +19,7 @@ impl<I> TableEntity for IdEntity<I>
 where
     I: Copy + Send + Sync,
 {
-    type Iden = Iden;
+    type Iden = I;
 
     fn all_columns() -> Vec<Self::Iden> {
         vec![Iden::Id]
@@ -30,7 +30,7 @@ where
     }
 }
 
-impl<I: Copy> Identifiable<I> for IdEntity<I>
+impl<I: Copy> Identifiable for IdEntity<I>
 where
     I: Copy + Send + Sync,
 {

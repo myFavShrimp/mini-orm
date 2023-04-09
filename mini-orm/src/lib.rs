@@ -1,7 +1,12 @@
 mod id_entity;
 
-pub trait Identifiable<I>: TableEntity {
-    fn id(&self) -> I;
+pub trait Identifiable: TableEntity
+where
+    Self::IdType: Copy + Send + Sync,
+{
+    type IdType;
+
+    fn id(&self) -> Self::IdType;
 
     fn id_column() -> Self::Iden;
 }
