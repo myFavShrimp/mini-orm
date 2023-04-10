@@ -1,5 +1,3 @@
-pub mod id_entity;
-
 pub trait Identifiable: TableEntity
 where
     Self::IdType: Copy + Send + Sync,
