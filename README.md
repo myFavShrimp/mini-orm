@@ -15,7 +15,7 @@ Using mini-orm is easy! Here's a quick example to get you started:
 
 First, define the structs representing your database tables.
 ```rust
-#[derive(Iden)]
+#[derive(sea_query::Iden)]
 punb enum TableA {
     Table,
     Id,
@@ -53,7 +53,7 @@ impl Identifiable for EntityA {
 ```
 
 ```rust
-#[derive(Iden)]
+#[derive(sea_query::Iden)]
 punb enum TableB {
     Table,
     Id,
