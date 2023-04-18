@@ -2,7 +2,7 @@
 
 mini-orm is a blazingly fast Rust crate that utilizes traits to model relations between structs and makes them queriable. 💻
 
-> While this crate is intended for a very specific use case in some of my projects, I welcome your feedback and suggestions. If you find it useful and would like to contribute, please feel free to submit pull requests. Additionally, if you think some changes are needed to make it work better for your particular use case, I'm open to hearing your thoughts and making updates accordingly.
+> While this crate serves a very specific use case in some of my projects, I welcome your feedback and suggestions. If you find it useful and would like to contribute, please feel free to submit pull requests. Additionally, if you think some changes are needed to make it work better for your particular use case, I'm open to hearing your thoughts and making updates accordingly.
 
 ## Features
 
